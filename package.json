@@ -7,6 +7,7 @@
   "author": "Gustavo Bordin <gustavo.bordinho@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "pg": "^8.3.3",
     "pg-hstore": "^2.3.3",

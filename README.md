@@ -9,6 +9,7 @@
   <br>
 
 # 2. Setting up
+- First o fall, you must set up the backend, see: https://github.com/gustavobordinho/quotes-crawler
 
 - 2.1 Clone this repo:
 
@@ -57,7 +58,3 @@ http://localhost:PORT?language=pt_br&author=Gustavo Bordin
 ```bash
 http://localhost:PORT?language=pt_br&author=Gustavo Bordin&keyword=love
 ```
-
-# 4. Fill your database
-
-- See: https://github.com/gustavobordinho/quotes-crawler

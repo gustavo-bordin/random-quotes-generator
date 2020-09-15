@@ -1,22 +1,20 @@
-const connection = require('../database/connection');
-const Sequelize = require('sequelize');
+const mongoose = require('../database/connection');
 
-const Quotes = connection.define(
-  'Quotes',
+const QuotesSchema = new mongoose.Schema(
   {
     content: {
-      type: Sequelize.TEXT,
-      allowNull: false,
+      type: String,
+      require: true,
     },
     author: {
-      type: Sequelize.STRING,
-    },
-    language: {
-      type: Sequelize.STRING,
-      allowNull: false,
+      type: String,
+      require: false,
     },
   },
-  { timestamps: false }
+  { collection: 'quotes' }
 );
 
-module.exports = Quotes;
+mongoose.model('quotes', QuotesSchema);
+const QuotesModel = mongoose.model('quotes');
+
+module.exports = QuotesModel;

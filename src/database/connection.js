@@ -1,30 +1,26 @@
-const Sequelize = require('sequelize');
+const mongoose = require('mongoose');
 
 require('dotenv').config();
 
 const user = process.env.DB_USER;
-const name = process.env.DB_NAME;
-const dialect = process.env.DB_DIALECT;
 const password = process.env.DB_PASS;
 const host = process.env.DB_HOST;
 const port = process.env.DB_PORT;
 
-const connection = new Sequelize(name, user, password, {
-  dialect: dialect,
-  host: host,
-  port: port,
-  define: {
-    freezeTableName: true,
-  },
-});
-
-connection
-  .authenticate()
+mongoose
+  .connect('mongodb://localhost/quotes', {
+    auth: {
+      authdb: 'admin',
+      user: 'gbordin',
+      password: '123',
+    },
+  })
   .then(() => {
-    console.log('Successfully connected');
+    console.log('Connected successfully');
   })
   .catch((error) => {
-    console.log(`Authentication error: ${error}`);
+    console.log('An error ocurred while connecting to Mongo: ' + error);
   });
 
-module.exports = connection;
+console.log(mongoose);
+module.exports = mongoose;
